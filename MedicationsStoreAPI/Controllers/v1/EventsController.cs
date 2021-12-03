@@ -1,12 +1,13 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Net;
 using System.Threading.Tasks;
-using MedicinesStoreAPI.Controllers.Dto;
-using MedicinesStoreAPI.Database.Models;
-using MedicinesStoreAPI.Database.Repositories.Interface;
+using MedicationsStoreAPI.Controllers.Dto;
+using MedicationsStoreAPI.Database.Models;
+using MedicationsStoreAPI.Database.Repositories.Interface;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MedicinesStoreAPI.Controllers.v1
+namespace MedicationsStoreAPI.Controllers.v1
 {
     [ApiController]
     [ApiVersion("1.0")]
@@ -22,18 +23,18 @@ namespace MedicinesStoreAPI.Controllers.v1
 
         [HttpPost("createmedication")]
         public async Task<IActionResult> Create(
-            [Required] [FromBody] MedicationDto medicationUserDto)
+            [Required] [FromBody] MedicationDto medicationDto)
         {
-            if (medicationUserDto.Quantity<=0)
+            if (medicationDto.Quantity<=0)
             {
                 Console.WriteLine("indefinite-number-of-medications");
                 return BadRequest();
             }
             var medicationDbo = new Medication()
             {
-                Name = medicationUserDto.Name,
-                Quantity = medicationUserDto.Quantity,
-                CreatedDate = medicationUserDto.CreatedDate
+                Name = medicationDto.Name,
+                Quantity = medicationDto.Quantity,
+                CreatedDate = medicationDto.CreatedDate
             };
 
             _medicationRepository.InsertMedication(medicationDbo);
@@ -41,15 +42,19 @@ namespace MedicinesStoreAPI.Controllers.v1
         }
 
         [HttpGet("medicationlist")]
-        public async Task<IActionResult> GetMedicineList()
+        public async Task<IActionResult> GetMedicationsList()
         {
             var medicationsList = _medicationRepository.GetMedicationsList();
             return Ok(medicationsList);
         }
 
         [HttpDelete("deletemedication")]
-        public async Task<IActionResult> DeleteMedicine(string name)
+        public async Task<IActionResult> DeleteMedication(string name)
         {
+            if (String.IsNullOrEmpty(name))
+            {
+                return StatusCode((int) HttpStatusCode.NotFound);
+            }
             _medicationRepository.DeleteMedication(name);
             return Ok();
         }

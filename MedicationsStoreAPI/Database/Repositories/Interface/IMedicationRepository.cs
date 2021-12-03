@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using MedicinesStoreAPI.Database.Models;
+using MedicationsStoreAPI.Database.Models;
 
-namespace MedicinesStoreAPI.Database.Repositories.Interface
+namespace MedicationsStoreAPI.Database.Repositories.Interface
 {
     public interface IMedicationRepository
     {

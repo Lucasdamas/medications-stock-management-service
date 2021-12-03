@@ -1,11 +1,11 @@
-﻿using MedicinesStoreAPI.Database.Context;
-using MedicinesStoreAPI.Database.Repositories.Implementations;
-using MedicinesStoreAPI.Database.Repositories.Interface;
+﻿using MedicationsStoreAPI.Database.Context;
+using MedicationsStoreAPI.Database.Repositories.Implementations;
+using MedicationsStoreAPI.Database.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace MedicinesStoreAPI.StartupConfiguration
+namespace MedicationsStoreAPI.StartupConfiguration
 {
     public static class ServiceCollectionExtensions
     {

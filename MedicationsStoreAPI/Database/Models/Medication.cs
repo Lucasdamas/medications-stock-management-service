@@ -1,8 +1,10 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 
-namespace MedicinesStoreAPI.Database.Models
+namespace MedicationsStoreAPI.Database.Models
 {
+    [ExcludeFromCodeCoverage]
     public class Medication
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

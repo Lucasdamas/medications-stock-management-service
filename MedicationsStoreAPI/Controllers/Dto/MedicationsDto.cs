@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
-namespace MedicinesStoreAPI.Controllers.Dto
+namespace MedicationsStoreAPI.Controllers.Dto
 {
+    [ExcludeFromCodeCoverage]
     public class MedicationDto
     {
         public string Name { get; set; }

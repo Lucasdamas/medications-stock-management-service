@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using MedicinesStoreAPI.Database.Context;
-using MedicinesStoreAPI.Database.Models;
-using MedicinesStoreAPI.Database.Repositories.Interface;
+using MedicationsStoreAPI.Database.Context;
+using MedicationsStoreAPI.Database.Models;
+using MedicationsStoreAPI.Database.Repositories.Interface;
 
-namespace MedicinesStoreAPI.Database.Repositories.Implementations
+namespace MedicationsStoreAPI.Database.Repositories.Implementations
 {
     public class MedicationRepository : IMedicationRepository
     {

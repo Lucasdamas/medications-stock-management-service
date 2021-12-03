@@ -1,7 +1,7 @@
-﻿using MedicinesStoreAPI.Database.Models;
+﻿using MedicationsStoreAPI.Database.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace MedicinesStoreAPI.Database.Context
+namespace MedicationsStoreAPI.Database.Context
 {
     public class EventDbContext : DbContext
     {
