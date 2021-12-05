@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Net;
 using System.Threading.Tasks;
+using MedicationsStoreAPI.Constants;
 using MedicationsStoreAPI.Controllers.Dto;
 using MedicationsStoreAPI.Database.Models;
 using MedicationsStoreAPI.Database.Repositories.Interface;
@@ -25,9 +26,9 @@ namespace MedicationsStoreAPI.Controllers.v1
         public async Task<IActionResult> Create(
             [Required] [FromBody] MedicationDto medicationDto)
         {
-            if (medicationDto.Quantity <= 0)
+            if (medicationDto.Quantity < StockRequirements.MinimumQuantity)
             {
-                Console.WriteLine("indefinite-number-of-medications");
+                Console.WriteLine("quantity-must-be-greater-than-zero");
                 return BadRequest();
             }
 
