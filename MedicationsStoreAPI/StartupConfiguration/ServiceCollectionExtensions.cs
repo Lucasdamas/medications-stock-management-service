@@ -16,7 +16,7 @@ namespace MedicationsStoreAPI.StartupConfiguration
             serviceCollection.AddHttpContextAccessor();
             serviceCollection.AddControllers();
             serviceCollection.AddApiVersioning();
-            
+
 
             return serviceCollection;
         }

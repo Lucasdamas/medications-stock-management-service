@@ -25,11 +25,12 @@ namespace MedicationsStoreAPI.Controllers.v1
         public async Task<IActionResult> Create(
             [Required] [FromBody] MedicationDto medicationDto)
         {
-            if (medicationDto.Quantity<=0)
+            if (medicationDto.Quantity <= 0)
             {
                 Console.WriteLine("indefinite-number-of-medications");
                 return BadRequest();
             }
+
             var medicationDbo = new Medication()
             {
                 Name = medicationDto.Name,
@@ -55,6 +56,7 @@ namespace MedicationsStoreAPI.Controllers.v1
             {
                 return StatusCode((int) HttpStatusCode.NotFound);
             }
+
             _medicationRepository.DeleteMedication(name);
             return Ok();
         }
