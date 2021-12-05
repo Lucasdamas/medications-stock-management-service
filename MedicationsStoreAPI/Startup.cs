@@ -45,7 +45,7 @@ namespace MedicationsStoreAPI
             {
                 endpoints.MapControllers();
                 endpoints.MapGet("/",
-                    async context => { await context.Response.WriteAsync("Welcome to the medicaments store!"); });
+                    async context => { await context.Response.WriteAsync("Welcome to the medications store!"); });
             });
         }
     }
