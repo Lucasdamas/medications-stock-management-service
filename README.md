@@ -1,1 +1,1 @@
-# medicines-stock-management-service
+# medications-stock-management-service
